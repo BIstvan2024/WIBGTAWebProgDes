@@ -56,6 +56,7 @@
         <a href="versenynaptar.html">Versenynaptár</a>
         <a href="technologia.html">Technológia</a>
         <a href="kapcsolat.html">Kapcsolat</a>
+        <a href="video.html">Videó</a>
     </nav>
     <main>
         <article>
@@ -72,93 +73,7 @@
         </aside>
     </main>
     <main>
-        <h2>Forma-1 Videó</h2>
-        <video id="f1Video" controls>
-            <source src="f1_video.mp4" type="video/mp4">
-        </video>
-        <div class="controls">
-            <div class="control-icons">
-                <button onclick="togglePlayPause()"><i class="fas fa-play"></i> / <i class="fas fa-pause"></i></button>
-                <button onclick="increaseVolume()"><i class="fas fa-volume-up"></i></button>
-                <button onclick="decreaseVolume()"><i class="fas fa-volume-down"></i></button>
-                <button onclick="muteUnmute()"><i class="fas fa-volume-mute"></i></button>
-                <button onclick="increaseSpeed()"><i class="fas fa-fast-forward"></i></button>
-                <button onclick="decreaseSpeed()"><i class="fas fa-fast-backward"></i></button>
-                <button onclick="stopVideo()"><i class="fas fa-stop"></i></button>
-                <button onclick="toggleFullScreen()"><i class="fas fa-expand"></i></button>
-                <button onclick="exitFullScreen()"><i class="fas fa-compress"></i></button>
-            </div>
-        </div>
-    </main>
 
-    <script>
-        const video = document.getElementById('f1Video');
-
-        function togglePlayPause() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        }
-
-        function increaseVolume() {
-            if (video.volume < 1) {
-                video.volume += 0.1;
-            }
-        }
-
-        function decreaseVolume() {
-            if (video.volume > 0) {
-                video.volume -= 0.1;
-            }
-        }
-
-        function muteUnmute() {
-            video.muted = !video.muted;
-        }
-
-        function increaseSpeed() {
-            if (video.playbackRate < 2) {
-                video.playbackRate += 0.25;
-            }
-        }
-
-        function decreaseSpeed() {
-            if (video.playbackRate > 0.25) {
-                video.playbackRate -= 0.25;
-            }
-        }
-
-        function stopVideo() {
-            video.pause();
-            video.currentTime = 0;
-        }
-
-        function toggleFullScreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.mozRequestFullScreen) {
-                video.mozRequestFullScreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-        }
-
-        function exitFullScreen() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-        }
-    </script>
     <footer>
         <p>Forma-1 Weboldal WIBGTA</p>
     </footer>
