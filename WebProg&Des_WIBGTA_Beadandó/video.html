@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videó Vezérlés</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff1c1c;
+            color: white;
+            padding: 10px 0;
+            text-align: center;}
+            nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 10px;
+        }
+        video {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .controls {
+            margin: 10px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .control-icons i {
+            font-size: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Videó Vezérlés</h1>
+    </header>
+    <nav>
+        <a href="index.html">Kezdőlap</a>
+        <a href="versenyzok.html">Versenyzők</a>
+        <a href="versenynaptar.html">Versenynaptár</a>
+        <a href="technologia.html">Technológia</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+        <a href="video.html">Videó</a>
+    </nav>
+    <main>
+        <h2>A közelmúltban történt legnagyobb baleset a forma-1-ben</h2>
+        <video id="f1Video" controls>
+            <source src="f1_video.mp4" type="video/mp4">
+            A böngésző nem támogatja a videó lejátszást.
+        </video>
+        <div class="controls">
+            <div class="control-icons">
+                <button onclick="togglePlayPause()"><i class="fas fa-play"></i> / <i class="fas fa-pause"></i></button>
+                <button onclick="increaseVolume()"><i class="fas fa-volume-up"></i></button>
+                <button onclick="decreaseVolume()"><i class="fas fa-volume-down"></i></button>
+                <button onclick="muteUnmute()"><i class="fas fa-volume-mute"></i></button>
+                <button onclick="increaseSize()"><i class="fas fa-search-plus"></i></button>
+                <button onclick="decreaseSize()"><i class="fas fa-search-minus"></i></button>
+                <button onclick="stopVideo()"><i class="fas fa-stop"></i></button>
+                <button onclick="toggleFullScreen()"><i class="fas fa-expand"></i></button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Forma-1 Weboldal WIBGTA &copy; 2024</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById('f1Video');
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function increaseVolume() {
+            if (video.volume < 1) {
+                video.volume += 0.1;
+            }
+        }
+
+        function decreaseVolume() {
+            if (video.volume > 0) {
+                video.volume -= 0.1;
+            }
+        }
+
+        function muteUnmute() {
+            video.muted = !video.muted;
+        }
+
+        function increaseSize() {
+            video.style.width = (parseFloat(video.style.width || '80%') + 10) + '%';
+        }
+
+        function decreaseSize() {
+            video.style.width = (parseFloat(video.style.width || '80%') - 10) + '%';
+        }
+
+        function stopVideo() {
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        function toggleFullScreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
